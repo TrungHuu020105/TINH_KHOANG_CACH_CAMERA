@@ -1,0 +1,5 @@
+train: data/train/images
+val: data/train/images
+
+nc: 3
+names: ['table', 'calculator', 'lipstick']
