@@ -1,4 +1,4 @@
-# TINH_KHOANG_CACH — Mô tả toàn bộ thư mục
+# Tính Khoảng cách dựa trên video
 
 File này mô tả cấu trúc, các file quan trọng, và cách chạy các script trong thư mục gốc của dự án.
 
