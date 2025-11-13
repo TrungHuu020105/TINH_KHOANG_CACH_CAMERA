@@ -1,0 +1,53 @@
+🟢 Đo lường và Cảnh báo Khoảng cách
+|
+├── ⚙️ Kiến trúc Hệ thống
+|    |
+|    ├── Mô hình Trí tuệ Nhân tạo (YOLO)
+|    |    ├── Model COCO: phát hiện vật thể phổ thông
+|    |    └── Model Custom: phát hiện vật thể chuyên biệt
+|    |
+|    ├── Nguồn dữ liệu
+|    |    ├── Video: từ camera hoặc file video sẵn
+|    |    └── CSDL vật thể: file CSV chứa chiều rộng thực tế
+|    |
+|    └── Module Tính toán & Hằng số
+|         ├── Hằng số: FOCAL_LENGTH, THRESHOLD_CM
+|         ├── Module tính khoảng cách: calculate_distance
+|         |    └── Công thức tam giác đồng dạng:
+|         |        Distance = (Object Width thực tế × Focal Length) / Object Width trên ảnh
+|         ├── Module lọc trùng lặp: IoU (Intersection over Union)
+|         └── Module Cảnh báo
+|              ├── Âm thanh: gTTS
+|              └── Hiển thị hình ảnh: cv2.imshow
+|
+├── 🔄 Luồng Hoạt động (Logic vòng lặp chính)
+|    |
+|    ├── Thu nhận & Tiền xử lý
+|    |    └── Đọc từng frame từ camera, resize nếu cần
+|    |
+|    ├── Phát hiện & Tổng hợp
+|    |    ├── Chạy khung hình qua cả 2 mô hình
+|    |    ├── Lọc kết quả có confidence < 0.5
+|    |    └── Loại bỏ trùng lặp bằng IoU
+|    |
+|    ├── Phân tích
+|    |    ├── Kiểm tra dữ liệu label trong OBJECT_WIDTHS_CM
+|    |    ├── Nếu có dữ liệu:
+|    |    |    ├── Tính khoảng cách thực tế
+|    |    |    └── So sánh với THRESHOLD_CM
+|    |    └── Nếu không có dữ liệu:
+|    |         └── Đánh dấu "no data"
+|    |
+|    └── Cảnh báo & Hiển thị
+|         ├── Quá gần: phát âm thanh cảnh báo, khung đỏ, hiển thị "CANH BAO"
+|         ├── An toàn: khung xanh, hiển thị tên + khoảng cách
+|         └── Không có dữ liệu: khung tím, hiển thị tên + "no data"
+|
+├── 🎯 Ứng dụng Thực tế
+|    ├── Hỗ trợ đi đường & cảnh báo vật cản cho người khiếm thị
+|    |    ├── Chia khung hình làm 3 vùng: trái, giữa, phải
+|    |    └── Vật thể gần ở giữa → cảnh báo
+|    |
+|    └── Hệ thống cảnh báo va chạm sớm khi lái xe
+|         ├── Phát hiện làn đường
+|         └── Phát hiện & cảnh báo xe ở làn trái, giữa, phải
