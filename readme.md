@@ -65,10 +65,8 @@ python train.py --config data.yaml --epochs 50
 - Với `lane_detection.py`, tinh chỉnh ngưỡng Canny, ROI và tham số HoughLinesP để phù hợp với video thực tế.
 - Với đo khoảng cách, đảm bảo `object_widths.csv` chứa chiều rộng thật của đối tượng tương ứng class để tính đúng khoảng cách.
 
-**Muốn mình làm tiếp?**
-- Mình có thể:
-  - Mô tả chi tiết `train.py` hoặc bất kỳ file `.py` nào bạn chỉ định.
-  - Thêm script cấu hình (ví dụ `config.yaml`) để dễ tinh chỉnh tham số pipeline.
-  - Chạy demo trên video mẫu nếu bạn upload hoặc cho biết đường dẫn file có sẵn trong repo.
+**Người làm dự án**
+- Lê Trung Hữu: 23666491
+- Môn học Trí Tuệ Nhân tạo tại đại học Công Nghiệp thành phố Hồ Chính Minh
 
-Nếu cần mình cập nhật phần mô tả cho một file cụ thể, nói tên file và mình sẽ mở nó và viết mô tả chi tiết.
+--------------------------------------------------------------------- CẢM ƠN MỌI NGƯỜI ĐÃ XEM!! ------------------------------------------------------------------------------
